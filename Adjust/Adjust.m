@@ -261,7 +261,7 @@ static dispatch_once_t onceToken = 0;
 
 + (ADJAttribution *)attribution {
     @synchronized (self) {
-        return [[Adjust getInstance] attribution];
+        return [(Adjust *)[Adjust getInstance] attribution];
     }
 }
 
