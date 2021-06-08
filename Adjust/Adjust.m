@@ -53,14 +53,14 @@ NSString * const ADJDataResidencyUS = @"DataResidencyUS";
 static Adjust *defaultInstance = nil;
 static dispatch_once_t onceToken = 0;
 
-+ (id)getInstance {
++ (instancetype)getInstance {
     dispatch_once(&onceToken, ^{
         defaultInstance = [[self alloc] init];
     });
     return defaultInstance;
 }
 
-- (id)init {
+- (instancetype)init {
     self = [super init];
     if (self == nil) {
         return nil;
@@ -261,7 +261,7 @@ static dispatch_once_t onceToken = 0;
 
 + (ADJAttribution *)attribution {
     @synchronized (self) {
-        return [(Adjust *)[Adjust getInstance] attribution];
+        return [[Adjust getInstance] attribution];
     }
 }
 
